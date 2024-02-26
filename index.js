@@ -10,10 +10,10 @@ app.use(express.json());
 const db = require('./src/db/connection');
 
 // Routes
-const authRoutes = require('./routes/authRoutes');
-// const cartRoutes = require('./routes/cartRoutes');
-// const orderRoutes = require('./routes/orderRoutes');
-// const productRoutes = require('./routes/productRoutes');
+const authRoutes = require('./src/routes/authRoutes');
+// const cartRoutes = require('./src/routes/cartRoutes');
+// const orderRoutes = require('./src/routes/orderRoutes');
+// const productRoutes = require('./src/routes/productRoutes');
 
 app.use('/auth', authRoutes);
 // app.use('/cart', cartRoutes);
