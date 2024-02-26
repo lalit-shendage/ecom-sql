@@ -1,5 +1,11 @@
 const db = require('../db/connection');
 const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+
+dotenv.config();
+
+const jwtSecret = process.env.JWT_SECRET;
 
 exports.registerUser = async (req, res) => {
     try {
@@ -27,8 +33,8 @@ exports.loginUser = async (req, res) => {
             res.status(401).json({ error: 'Invalid password' });
             return;
         }
-        res.json({ message: 'User logged in successfully' });
-    } catch (error) {
+        const token = jwt.sign({ id: user.id, email: user.email }, jwtSecret, { expiresIn: '1h' });
+        res.json({ token, userId: user.id });    } catch (error) {
         console.error('Error logging in user:', error);
         res.status(500).json({ error: 'Internal Server Error' });
     }
