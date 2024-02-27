@@ -67,7 +67,9 @@ This is an e-commerce application that allows users to browse products, add them
 
 ## Api Endpoints
 
-#### User Authentication
+
+
+### User Authentication
 
     Sign Up
         URL: /auth/signup
