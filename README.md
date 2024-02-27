@@ -68,60 +68,68 @@ This is an e-commerce application that allows users to browse products, add them
 
 
 
-#### User Authentication
+## User Authentication
 
-   ##### Sign Up
-        URL: /auth/signup
-        Method: POST
-        Description: Allows a new user to sign up by providing their username, email, and password.
-        Request Body:
+### Sign Up
 
-        ```bash
+URL: /auth/signup
 
+Method: POST
+
+Description: Allows a new user to sign up by providing their username, email, and password.
+
+Request Body:
+
+```bash
     {
         "username": "example_user",
         "email": "user@example.com",
         "password": "example_password"
     }
 
-        ```
+```
 
 
-    Response: Returns a JSON object with the newly created user's information if successful, including the user ID and access token.
+Response: Returns a JSON object with the newly created user's information if successful, including the user ID and access token.
 
-   ##### Log In
+### Log In
 
-        URL: /auth/login
-        Method: POST
-        Description: Allows an existing user to log in by providing their email and password.
-        Request Body:
+URL: /auth/login
 
-    ```bash
+Method: POST
+
+Description: Allows an existing user to log in by providing their email and password.
+
+Request Body:
+```bash
         {
             "email": "user@example.com",
             "password": "example_password"
         }
 
-    ```
+```
 
-        Response: Returns a JSON object with the user's information and access token if successful.
+Response: Returns a JSON object with the user's information and access token if successful.
 
-### Note 
+## Note 
 
-    Every endpoint after this requires the authorization: token and content-type: application/json inside its header
+1. Every endpoint after this requires the authorization: token and content-type: application/json inside its header
 
-    For reference postman collection is provided in root directory of this application
+2. For reference postman collection is provided in root directory of this application
 
-#### Product Management
+## Product Management
 
-##### Create Product
-        URL: /products
-        Method: POST
-        Description: Allows an admin user to create a new product by providing the product details, including name, description, price, etc.
-        Request Body:
+### Create Product
 
-        ```bash
+URL: /products
 
+Method: POST
+
+Description: Allows an admin user to create a new product by providing the product details, including name, description, price, etc.
+
+Request Body:
+
+```bash
         {
             "name": "Product Name",
             "description": "Product Description",
@@ -130,132 +138,161 @@ This is an e-commerce application that allows users to browse products, add them
             "availability": true
         }
 
-        ```
+```
 
-        Response: Returns a JSON object with the details of the newly created product.
+Response: Returns a JSON object with the details of the newly created product.
 
-##### Get Products by category 
-        URL: /category/:categoryId
-        Method: GET
-        Description: Retrieves all available products from the database.
-        Response: Returns an array of JSON objects, each representing a product.
+### Get Products by category 
 
-    Get Product by ID
-        URL: /products/:id
-        Method: GET
-        Description: Retrieves a specific product by its ID.
-        Response: Returns a JSON object with the details of the requested product.
+URL: /category/:categoryId
 
-    Get All Categories
+Method: GET
 
-        URL: /categories
-        Method: GET
-        Description: Retrieves all available categories from the database.
-        Response: Returns an array of JSON objects, each representing a category.
+Description: Retrieves all available products from the database.
 
-    Create Category
+Response: Returns an array of JSON objects, each representing a product.
 
-        URL: /categories
-        Method: POST
-        Description: Allows an admin user to create a new category by providing the category name.
-        Request Body:
+### Get Product by ID
 
-        ```bash
+URL: /products/:id
 
-            {
-            "name": "Category Name"
-            }
+Method: GET
 
-        ```
+Description: Retrieves a specific product by its ID.
 
-        Response: Returns a JSON object with the details of the newly created category.
+Response: Returns a JSON object with the details of the requested product.
 
-#### Cart Management
+### Get All Categories
 
-    Add Product to Cart
-        URL: /cart/addToCart
-        Method: POST
-        Description: Allows a user to add a product to their cart by providing the product ID and quantity.
-        Request Body:
+URL: /categories
 
-        ```bash
+Method: GET
 
+Description: Retrieves all available categories from the database.
+
+Response: Returns an array of JSON objects, each representing a category.
+
+### Create Category
+
+URL: /categories
+
+Method: POST
+
+Description: Allows an admin user to create a new category by providing the category name.
+
+Request Body:
+
+```bash
+    {
+    "name": "Category Name"
+     }
+
+```
+
+Response: Returns a JSON object with the details of the newly created category.
+
+## Cart Management
+
+### Add Product to Cart
+URL: /cart/addToCart
+
+Method: POST
+
+Description: Allows a user to add a product to their cart by providing the product ID and quantity.
+
+Request Body:
+
+ ```bash
     {
         "productId": 123,
         "quantity": 2
     }
-        ```
-        Response: Returns a JSON object confirming that the product has been added to the cart.
+ ```
+Response: Returns a JSON object confirming that the product has been added to the cart.
 
-    Get User's Cart
+### Get User's Cart
 
-        URL: /cart/view
-        Method: GET
-        Description: Retrieves the current user's cart contents.
-        Response: Returns an array of JSON objects, each representing a product in the cart.
+URL: /cart/view
 
-    Update Cart Item
+Method: GET
 
-        URL: /cart/update
-        Method: PUT
-        Description: Updates the quantity of a specific item in the cart.
-        Request Body:
+Description: Retrieves the current user's cart contents.
 
-    ```bash
+Response: Returns an array of JSON objects, each representing a product in the cart.
 
-        {
-            "quantity": 3
-        }
-    ```
+### Update Cart Item
 
-        Response: Returns a JSON object confirming that the cart item has been updated.
+URL: /cart/update
+Method: PUT
+Description: Updates the quantity of a specific item in the cart.
 
-    Remove Cart Item
-        URL: /cart/remove/:id
-        Method: DELETE
-        Description: Removes a specific item from the user's cart.
-        Response: Returns a JSON object confirming that the cart item has been removed.
+Request Body:
+```bash
+    {
+        "quantity": 3
+    }
+```
 
-#### Order Management
+Response: Returns a JSON object confirming that the cart item has been updated.
 
-    Place Order
-        URL: /order/place
-        Method: POST
-        Description: Allows a user to place an order for the items in their cart.
-        Request Body:
+### Remove Cart Item
+URL: /cart/remove/:id
 
-        ```bash
+Method: DELETE
 
+Description: Removes a specific item from the user's cart.
+
+Response: Returns a JSON object confirming that the cart item has been removed.
+
+## Order Management
+
+### Place Order
+URL: /order/place
+
+Method: POST
+
+Description: Allows a user to place an order for the items in their cart.
+
+Request Body:
+
+```bash
+
+    {
+        "userId": 1,
+        "products": [
             {
-                "userId": 1,
-                "products": [
-                    {
-                        "productId": 2,
+                 "productId": 2,
                         "quantity": 2
-                    },
-                    {
-                        "productId": 1,
-                        "quantity": 1
-                    }
-                ]
+             },
+            {
+                 "productId": 1,
+                "quantity": 1
             }
-        ```
+        ]
+    }
+```
 
-        Response: Returns a JSON object confirming that the order has been placed, along with the order ID.
+Response: Returns a JSON object confirming that the order has been placed, along with the order ID.
 
-    Get Order History
+### Get Order History
 
-        URL: /order/history
-        Method: GET
-        Description: Retrieves the order history for the current user.
-        Response: Returns an array of JSON objects, each representing an order.
+URL: /order/history
 
-    Get Order by ID
+Method: GET
 
-        URL: /api/orders/:id
-        Method: GET
-        Description: Retrieves a specific order by its ID.
-        Response: Returns a JSON object with the details of the requested order.
+Description: Retrieves the order history for the current user.
+
+Response: Returns an array of JSON objects, each representing an order.
+
+### Get Order by ID
+
+URL: /api/orders/:id
+
+Method: GET
+
+Description: Retrieves a specific order by its ID.
+
+Response: Returns a JSON object with the details of the requested order.
 
 ## Author
 
