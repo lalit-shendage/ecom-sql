@@ -16,8 +16,30 @@ This is an e-commerce application that allows users to browse products, add them
 1. Clone the repository:
 
    ```bash
-   git clonehttps://github.com/lalit-shendage/ecom-sql
+   git clone https://github.com/lalit-shendage/ecom-sql
 
 
-## Install dependencies 
+2. Install dependencies
 
+    ```bash
+    cd ecommerce-app
+    npm install
+
+3. Set up the database 
+
+    a. Create a MySQL database named ecommerce.
+
+    b. Import the provided SQL file (ecomData.sql) to create the necessary tables and sample data.
+
+4. Configure environment variables:
+
+    a. Create a .env file in the root directory.
+
+    b. Define the following environment variables in the .env file:
+
+     ```bash
+        DB_HOST=localhost
+        DB_USER=root
+        DB_PASSWORD=your_database_password
+        DB_NAME=ecommerce
+        JWT_SECRET=your_secret_key
