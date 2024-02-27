@@ -9,7 +9,8 @@ const jwtSecret=process.env.JWT_SECRET;
 
 exports.authenticateToken = (req, res, next) => {
     const authHeader = req.headers['authorization'];
-    const token = authHeader && authHeader.split(' ')[1];
+    const token = authHeader
+    
     if (!token) {
         return res.status(401).json({ error: 'Unauthorized: Missing token' });
     }

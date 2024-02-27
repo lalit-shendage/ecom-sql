@@ -4,11 +4,11 @@ const router = express.Router();
 const cartController = require('../controllers/cartController');
 const { authenticateToken } = require('../middleware/authMiddleware');
 
-router.post('/add', authenticateToken, cartController.addToCart);
+router.post('/addToCart', authenticateToken, cartController.addToCart);
 
 router.get('/view', authenticateToken, cartController.viewCart);
 
-router.put('/update/:productId', authenticateToken, cartController.updateCartItem);
+router.put('/update', authenticateToken, cartController.updateCart);
 
 router.delete('/remove/:productId', authenticateToken, cartController.removeCartItem);
 
