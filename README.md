@@ -106,6 +106,12 @@ Log In
 
         Response: Returns a JSON object with the user's information and access token if successful.
 
+### Note 
+
+    Every endpoint after this requires the authorization: token and content-type: application/json inside its header
+
+    For reference postman collection is provided in root directory of this application
+
 #### Product Management
 
     Create Product
