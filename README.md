@@ -60,7 +60,6 @@ This is an e-commerce application that allows users to browse products, add them
 
    ```bash
        npm start
-
    ```
 
 6. The server should now be running on http://localhost:3000.
@@ -69,7 +68,7 @@ This is an e-commerce application that allows users to browse products, add them
 
 
 
-### User Authentication
+A. User Authentication
 
     Sign Up
         URL: /auth/signup
@@ -90,15 +89,14 @@ This is an e-commerce application that allows users to browse products, add them
 
     Response: Returns a JSON object with the newly created user's information if successful, including the user ID and access token.
 
-Log In
+    Log In
 
-    URL: /auth/login
-    Method: POST
-    Description: Allows an existing user to log in by providing their email and password.
-    Request Body:
+        URL: /auth/login
+        Method: POST
+        Description: Allows an existing user to log in by providing their email and password.
+        Request Body:
 
     ```bash
-
         {
             "email": "user@example.com",
             "password": "example_password"
@@ -114,7 +112,7 @@ Log In
 
     For reference postman collection is provided in root directory of this application
 
-#### Product Management
+B. Product Management
 
     Create Product
         URL: /products
