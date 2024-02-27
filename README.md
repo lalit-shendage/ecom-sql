@@ -68,9 +68,9 @@ This is an e-commerce application that allows users to browse products, add them
 
 
 
-A. User Authentication
+#### User Authentication
 
-    Sign Up
+   ##### Sign Up
         URL: /auth/signup
         Method: POST
         Description: Allows a new user to sign up by providing their username, email, and password.
@@ -89,7 +89,7 @@ A. User Authentication
 
     Response: Returns a JSON object with the newly created user's information if successful, including the user ID and access token.
 
-    Log In
+   ##### Log In
 
         URL: /auth/login
         Method: POST
@@ -112,9 +112,9 @@ A. User Authentication
 
     For reference postman collection is provided in root directory of this application
 
-B. Product Management
+#### Product Management
 
-    Create Product
+##### Create Product
         URL: /products
         Method: POST
         Description: Allows an admin user to create a new product by providing the product details, including name, description, price, etc.
@@ -134,7 +134,7 @@ B. Product Management
 
         Response: Returns a JSON object with the details of the newly created product.
 
-    Get Products by category 
+##### Get Products by category 
         URL: /category/:categoryId
         Method: GET
         Description: Retrieves all available products from the database.
